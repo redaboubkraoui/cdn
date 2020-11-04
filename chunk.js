@@ -192,7 +192,7 @@ if(path ==='')
    var shop =window.location.host
    $.ajax({
        type: "POST",
-        url:"https://cc4317b260ad.ngrok.io/setposition",
+        url:"https://8100a9da6ed6.ngrok.io/setposition",
      data:{ 'position' : posistion ,'path' : path,'statu': 1,'shop': shop  },
         success: function(data) {
         if (data) {
