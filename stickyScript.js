@@ -719,7 +719,7 @@ $.ajax ({
     var line_item = JSON.parse(result.responseText);
 
     send_event('add', formatMoney(line_item.price,'{{amount}}'), function(){
-
+     
 
     if (cartmode == "def") {
       displayStatus(language.item_added[lang],[{title:language.check_out[lang], type:"primary", url:"/checkout", class:""},
@@ -737,7 +737,7 @@ $.ajax ({
     else if (cartmode == 'buynow') {
       window.top.location.href = '/checkout';
     }
-  });
+
     });
   }
   else {
@@ -768,10 +768,10 @@ $.ajax ({
 
   }
   }
-
+});
 //displayStatus("Item Added To Cart",[{title:"Checkout", type:"primary", url:"/checkout"},
 //{title:"Contiue Shopping", type:"secondary", url:"#"}, {title:"Visit Cart", type:"secondary", url:"/cart"}]);
-
+}
 
 function send_event(type, rev, callback) {
 
@@ -792,7 +792,6 @@ function send_event(type, rev, callback) {
 
         });
 }
-
 
 
 function formatMoney(cents, format) {
