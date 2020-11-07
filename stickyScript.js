@@ -1,5 +1,4 @@
- 
-                
+
 (function(){
 var product = {};
 var language = {
@@ -136,15 +135,15 @@ var myAppJavaScript = function($){
 var aph_enabled= true;
 var aph_device= 'all';
 var position= 'bottom';
-var button_color= 'DA5A2C';
+var button_color= 'FEFF33';
 var text_color= '000000';
 var cart_dest= 'def';
 var scroll_option= 'always';
-var popup_style= 'dark';
+var popup_style= 'light';
 var carticon_style= 'dark';
 var var_images= 'on';
 var qbuy_enabled= true;
-var qbuy_position= 'bot-left';
+var qbuy_position= 'top-left';
 var lang= 'en_us';
 var prec_setting= '2';
 
@@ -719,7 +718,7 @@ $.ajax ({
     var line_item = JSON.parse(result.responseText);
 
     send_event('add', formatMoney(line_item.price,'{{amount}}'), function(){
-     
+      add_plan(function() {
 
     if (cartmode == "def") {
       displayStatus(language.item_added[lang],[{title:language.check_out[lang], type:"primary", url:"/checkout", class:""},
@@ -737,7 +736,7 @@ $.ajax ({
     else if (cartmode == 'buynow') {
       window.top.location.href = '/checkout';
     }
-
+  });
     });
   }
   else {
@@ -778,7 +777,7 @@ function send_event(type, rev, callback) {
 
         $.ajax({
           type:"POST",
-          url:"",
+          url:"https://cart.apphero.co/analytics.php",
           data:{
             type:type,
             shop:Shopify.shop,
@@ -793,6 +792,18 @@ function send_event(type, rev, callback) {
         });
 }
 
+function add_plan(callback) {
+  $.ajax({
+    type:"POST",
+    url:"https://cart.apphero.co/limitHandler.php",
+    data:{
+      shop:Shopify.shop
+    },
+    success:function(response) {
+      callback();
+    }
+  });
+}
 
 function formatMoney(cents, format) {
   if (typeof cents == 'string') { cents = cents.replace('.',''); }
@@ -1168,7 +1179,3 @@ if ((typeof jQuery === 'undefined') || (parseInt(jQuery.fn.jquery) === 1 && pars
 }
 
 })();
-                
-                
-                
-                
