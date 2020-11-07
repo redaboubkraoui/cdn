@@ -773,38 +773,9 @@ $.ajax ({
 //{title:"Contiue Shopping", type:"secondary", url:"#"}, {title:"Visit Cart", type:"secondary", url:"/cart"}]);
 }
 
-function send_event(type, rev, callback) {
 
 
-        $.ajax({
-          type:"POST",
-          url:"https://cart.apphero.co/analytics.php",
-          data:{
-            type:type,
-            shop:Shopify.shop,
-            rev: rev,
-            curr:Shopify.currency.active
-          },
-          success:function(res) {
 
-            callback();
-          }
-
-        });
-}
-
-function add_plan(callback) {
-  $.ajax({
-    type:"POST",
-    url:"https://cart.apphero.co/limitHandler.php",
-    data:{
-      shop:Shopify.shop
-    },
-    success:function(response) {
-      callback();
-    }
-  });
-}
 
 function formatMoney(cents, format) {
   if (typeof cents == 'string') { cents = cents.replace('.',''); }
