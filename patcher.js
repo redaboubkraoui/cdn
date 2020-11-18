@@ -178,6 +178,5 @@
             e.rel = "stylesheet", e.href = "https://cdn.trustpitcher.com/embed/dohashopiy.myshopify.com/97e83d58-4f79-42bf-87d9-2954f0d3bbf5.css", e.type = "text/css", e.crossOrigin = "anonymous", e.onload = function() {
                 b = !0, d && !D || t()
             }, u.append(e)
-        }))(), null !== g ? g.append(l) : document.querySelector('form[action="/cart/add"]').after(l),1
-    })()
-}();
+        }))(), null !== g ? g.append(l) : document.querySelector('form[action="/cart/add"]').after(l),true 
+    })() }();
