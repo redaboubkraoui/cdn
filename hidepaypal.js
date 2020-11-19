@@ -1,6 +1,6 @@
 
 var code = `
-var shop = 'dohashopiy.myshopify.com';
+var shop = 'anybews.myshopify.com';
 var af_hpp_verify = document.createElement("meta");
 af_hpp_verify.id = 'af_hpp_verify';
 document.head.appendChild(af_hpp_verify);
